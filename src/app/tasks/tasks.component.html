@@ -1,0 +1,33 @@
+
+<div>
+    <div style="text-align:center">
+        <h3>Welcome to Api Data Section</h3>
+    </div>
+    <div>
+        <button class="btn btn-primary btn-sm" style="float:right" routerLink="creating-Data">Create Data</button>
+    </div>
+</div>
+<br>
+<div style="border: 2px solid black; border-radius: 5px; margin: 20px;">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Updated At</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of apiData">
+            <th scope="row">{{data.title}}</th>
+            <td>{{data.description}}</td>
+            <td>{{data.createdAt | date}}</td>
+            <td>{{data.updatedAt | date}}</td>
+            <button class="btn btn-outline-danger btn-sm" style="float: right;" (click)="deleteData(data.id)">Delete</button>
+            <button class="btn btn-light btn-sm" style="float: right;" routerLink="{{data.id}}">View</button>
+          </tr>
+        </tbody>
+    </table>
+</div>
